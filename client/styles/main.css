@@ -25,12 +25,28 @@ p {
   border-radius: 15px;
   box-shadow: 10px 10px 50px rgb(189, 186, 186);
 }
-.messenger .messenger__name {
+.header {
+  position: relative;
+}
+.messenger .messenger__user {
   margin-bottom: 40px;
   text-align: center;
   font-size: 20px;
-  /* color: #b0bcb8; */
   color: #75787a;
+}
+.messenger .messenger__dot {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.messenger .dot--green {
+  background-color: green;
+}
+.messenger .dot--red {
+  background-color: red;
 }
 .messenger__messages {
   height: 430px;
@@ -45,6 +61,13 @@ p {
   padding: 20px;
   box-shadow: 5px 5px 15px rgba(189, 186, 186, 0.5);
   margin-bottom: 20px;
+  word-wrap: break-word;
+}
+.messenger__message .message__user {
+  font-weight: normal;
+  display: block;
+  margin-bottom: 10px;
+  font-style: italic;
 }
 .message--left {
   border-radius: 0 15px 15px 15px;
