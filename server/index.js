@@ -9,25 +9,15 @@ wss.on("connection", (ws) => {
   const id = "User-" + Date.now().toString().slice(-6);
   ws.id = id;
   ws.send(JSON.stringify({ type: "SET_ID", payload: id }));
-  ws.onmessage = ({ data }) => {
-    console.log({ data });
-    const { type, payload } = JSON.parse(data);
-    console.log(type, payload);
-    switch (type) {
-      case "NEW_MESSAGE":
-        wss.clients.forEach((client) => {
-          console.log(client);
-          if (client.id !== ws.id)
-            client.send(JSON.stringify({ type: "NEW_MESSAGE", payload: { message: payload, userId: ws.id } }));
-        });
-        break;
 
-      default:
-        break;
+  ws.onmessage = ({ data }) => {
+    const { type, payload } = JSON.parse(data);
+
+    if (type === "NEW_MESSAGE") {
+      wss.clients.forEach((client) => {
+        if (client.id !== ws.id)
+          client.send(JSON.stringify({ type: "NEW_MESSAGE", payload: { message: payload, userId: ws.id } }));
+      });
     }
   };
 });
-
-// wss.on("message", (message) => {
-//   console.log("received: %s", message);
-// });
