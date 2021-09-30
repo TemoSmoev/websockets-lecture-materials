@@ -42,10 +42,10 @@ p {
   left: 0;
   top: 0;
 }
-.messenger .dot--green {
+.messenger .messenger__dot--green {
   background-color: green;
 }
-.messenger .dot--red {
+.messenger .messenger__dot--red {
   background-color: red;
 }
 .messenger__messages {
@@ -54,7 +54,7 @@ p {
   margin: 0 -20px;
   padding: 0 20px;
 }
-.messenger__message {
+.message {
   width: fit-content;
   max-width: 70%;
   color: #75787a;
@@ -63,7 +63,7 @@ p {
   margin-bottom: 20px;
   word-wrap: break-word;
 }
-.messenger__message .message__user {
+.message .message__user {
   font-weight: normal;
   display: block;
   margin-bottom: 10px;
