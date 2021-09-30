@@ -2,7 +2,7 @@
 const WebSocket = require("ws");
 
 const wss = new WebSocket.Server({ port: 8080 }, () => {
-  console.log("our server is running");
+  console.log("\x1b[36m%s\x1b[0m", "our server is running, happy hacking :))");
 });
 
 wss.on("connection", (ws) => {
